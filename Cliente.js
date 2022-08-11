@@ -1,21 +1,16 @@
 export class Cliente{
-    usuario;
+    nome;
     _senha;
-    _ehValido;
 
-    get senha(){
-        return this._senha;
-    }
-
-    constructor(usuario){
-        this.usuario = usuario;
+    constructor(nome){
+        this.nome = nome;
     }
 
     cadastrarSenha(senha){
         this._senha = senha;
     }
 
-    autenticar(senha){
-        this._ehValido = this._senha == senha ? true : false;
+    autenticarSenha(senha){
+        return this._senha == senha ? true : false;
     }
 }

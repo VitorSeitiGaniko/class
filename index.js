@@ -2,16 +2,15 @@ import {Cliente} from "./Cliente.js"
 import {ContaCorrente} from "./ContaCorrente.js"
 import {Extrato} from "./Extrato.js"
 
-const clienteVitor = new Cliente("Vitor");
+const clienteVitor = new Cliente("Vitor Ganiko");
 
-const contaCorrenteVitor = new ContaCorrente(clienteVitor, "10290");
+const contaCorrenteVitor = new ContaCorrente(clienteVitor, "1029-0", "7998");
 
-clienteVitor.cadastrarSenha("teste123")
-clienteVitor.autenticar("teste123")
+clienteVitor.cadastrarSenha("teste123");
 
-clienteVitor._ehValido ? contaCorrenteVitor.depositar(1000) : false;
+clienteVitor.autenticarSenha("teste123") ? contaCorrenteVitor.depositar(1000) : false;
 
-clienteVitor._ehValido ? contaCorrenteVitor.sacar(20) : false;
+clienteVitor.autenticarSenha("teste123") ? contaCorrenteVitor.sacar(100) : false;
 
-const extatoVitor = new Extrato();
-extatoVitor.imprimir(contaCorrenteVitor)
+const extratoVitor = new Extrato();
+extratoVitor.converterImprimir(contaCorrenteVitor);

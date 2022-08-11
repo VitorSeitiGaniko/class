@@ -1,7 +1,13 @@
 export class Extrato{
 
-    imprimir(contaCorrenteJuão){
-        var objeto = JSON.stringify(contaCorrenteJuão)
+    converterImprimir(contaCorrente){
+        var infos = {
+            Cliente: contaCorrente.cliente.nome,
+            Agencia: contaCorrente.agencia,
+            Conta: contaCorrente.conta,
+            Saldo: contaCorrente.saldo
+        }
+        var objeto = JSON.stringify(infos);
         console.log(objeto);
     }
 }

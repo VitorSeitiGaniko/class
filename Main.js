@@ -1,9 +1,9 @@
-export class Main{        
+export class ContaBancaria{        
     cliente;
-    agencia
+    agencia;
+    conta;
     _saldo = 0;
     _senha;
-    _ehValido;
 
     get saldo(){
         return this._saldo;
@@ -17,9 +17,10 @@ export class Main{
         return this._ehValido;
     }
 
-    constructor(cliente, agencia){
+    constructor(cliente, agencia, conta){
         this.cliente = cliente;
         this.agencia = agencia;
+        this.conta = conta;
     }
 
     sacar(valor){
@@ -34,13 +35,18 @@ export class Main{
         this._senha = senha;
     }
 
-    autenticar(senha){
-        this._ehValido = this._senha == senha ? true : false;
+    autenticarSenha(senha){
+        return this._senha == senha ? true : false;
     }
 
-    imprimir(){
-        var objeto = JSON.stringify(this)
+    converterImprimir(){
+        var infos = {
+            Cliente: this.cliente,
+            Agencia: this.agencia,
+            Conta: this.conta,
+            Saldo: this.saldo
+        }
+        var objeto = JSON.stringify(infos)
         console.log(objeto);
     }
-
 }
